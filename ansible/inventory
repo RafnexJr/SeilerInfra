@@ -1,0 +1,7 @@
+[all]
+wiki.seiler.dev ansible_become_password="{{ become_pass }}"
+ssh.seiler.dev ansible_become_password="{{ become_pass }}"
+proxy.seiler.dev ansible_become_password="{{ become_pass }}"
+
+[bastion]
+ssh.seiler.dev

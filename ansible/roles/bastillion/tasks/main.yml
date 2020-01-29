@@ -1,0 +1,27 @@
+---
+
+- name: Download Bastillion package
+  get_url:
+    url: "{{ bastillion_package_url }}"
+    dest: /tmp/bastillion.tar.gz
+
+- name: Create Bastillion directory
+  file:
+    path: /opt/bastillion
+    state: directory
+
+- name: Extract Bastillion into the folder
+  unarchive:
+    src: /tmp/bastillion.tar.gz
+    dest: /opt/bastillion
+    remote_src: yes
+
+- name: Install JDK
+  yum:
+    name: java-1.8.0-openjdk-devel
+    state: present
+
+- name: Copy Bastillion service file
+  copy:
+    src: /opt/bastillion/Bastillion-jetty/jetty/bin/jetty.sh
+    dest: /etc/init.d/bastillion

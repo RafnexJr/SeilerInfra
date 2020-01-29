@@ -1,0 +1,5 @@
+---
+# defaults file for bastillion
+
+bastillion_package_url: https://github.com/bastillion-io/Bastillion/releases/download/v3.09.00/bastillion-jetty-v3.09_00.tar.gz
+bastillion_version: "v3.09.00"

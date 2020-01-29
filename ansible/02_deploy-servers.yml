@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  module_defaults:
+    apt:
+      force_apt_get: yes
+  become: yes
+  roles:
+    - hardening

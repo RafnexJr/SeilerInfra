@@ -1,0 +1,24 @@
+---
+
+- name: Write sshd banner
+  copy:
+    src: "sshd_banner"
+    dest: "/etc/ssh/sshd_banner"
+    owner: root
+    group: root
+    mode: u=rw
+
+- name: Write sshd config
+  template:
+    src: "sshd_config.j2"
+    dest: "/etc/ssh/sshd_config"
+    owner: root
+    group: root
+    mode: u=rw
+  notify:
+    - Restart sshd service
+
+- name: Enable sshd service
+  service:
+    name: sshd
+    enabled: yes
